@@ -18,14 +18,14 @@ var fp = Promise.promisifyAll(fs);
 
 var fetchProfileAndWriteToFile = function(readFilePath, writeFilePath) {
   return promiseConstructor.pluckFirstLineFromFileAsync(readFilePath)
-  .then((username) => promisification.getGitHubProfileAsync(username))
-  .then((body) => fs.writeFileSync(writeFilePath, JSON.stringify(body), (err, callback) => {
-    if (err){
-      callback(err, null);
-    }else{
-      callback(null, JSON.stringify(body));
-    }
-  }));
+    .then((username) => promisification.getGitHubProfileAsync(username))
+    .then((body) => fs.writeFileSync(writeFilePath, JSON.stringify(body), (err, callback) => {
+      if (err){
+        callback(err, null);
+      }else{
+        callback(null, JSON.stringify(body));
+      }
+    }));
 };
 
 // Export these functions so we can test them
