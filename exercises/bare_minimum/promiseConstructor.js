@@ -17,8 +17,8 @@ var pluckFirstLineFromFileAsync = function(filePath) {
       }else{
         fulfill(data.split('\n')[0]);
       }
-    })
-  })
+    });
+  });
 };
 
 // This function should retrieve the status code of a GET request to `url`
